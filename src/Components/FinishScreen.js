@@ -1,5 +1,8 @@
-function FinishScreen({ maxPossiblePoints, points }) {
-    const percentage = (points / maxPossiblePoints) * 100;
+import { useQuiz } from "../Context/QuizContext";
+
+function FinishScreen() {
+    const { maxPossiblePoints, points } = useQuiz()
+    const percentage = Math.floor((points / maxPossiblePoints) * 100);
     let emoji;
     if (percentage === 100) emoji = "🥇";
     if (percentage >= 80 && percentage < 100) emoji = "🎉";
